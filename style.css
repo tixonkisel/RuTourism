@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+body{
+    background-color: #fffffc;
+    overflow: hidden;
+}
+.russia_map_container{
+    scale: 0.9;
+    position: absolute; 
+    width: 1761px; 
+    height: 1013px;
+
+    right: 0;
+    left: auto;
+    overflow: hidden;
+}
+.russia_map{
+    position: absolute;
+    height: 1013px;
+    width: 1761px;
+}
+.russia_map_svg{
+    position: absolute;
+    color: rgba(0, 0, 0, 0);
+
+    opacity: 0;
+}
+.container_trey{
+    width: 25em;
+    height: 100vh;
+    position: fixed;
+
+    background-color: #A0C4FF20;
+
+	border-right: 3px solid #A0C4FF;
+    backdrop-filter: blur(5px);
+
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+}
+.container_trey.open{
+    
+    transform: translateX(-0%);
+    transition-property: transform;
+    transition-duration: 1s;
+}
+.container_trey.close{
+    
+    transform: translateX(calc(-100% + 3px));
+    transition-property: transform;
+    transition-duration: 1s;
+}
+.search_case{
+    width: 100%;
+    height: 2.2em;
+}
+#search{
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    padding: 0 1em;
+    border: 0px;
+    border-bottom: 2px rgb(0, 25, 49) solid;
+    background-color: #ffffff00;
+
+}
+#search:focus-visible{
+    border-bottom: 0px;
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+
+.gl-container_cities::-webkit-scrollbar{
+    width: 10px;
+
+}
+.gl-container_cities{
+    width: 100%;
+    height: auto;
+    max-height: 90%;
+
+    padding: 2em 0;
+    margin-top: 1em;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item_cities_container{
+    width: 100%;
+    min-height: 3em;
+    border: 2px solid #313c4e;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    margin: 0.5em 0;
+    backdrop-filter: blur(1px);
+    padding: 0 0.7em;
+    cursor: pointer;
+}
+
+.color_border{
+    height: 2em;
+    width: 1em;
+    border-radius: 2px;
+
+    margin-left: auto;
+    margin-right: 0;
+}
+.red-border{
+    background-color: red;
+}
+.yellow-border{
+    background-color: rgb(255, 238, 142);
+}
+.green-border{
+    background-color: rgb(0, 151, 0);
+}
+.blue-border{
+    background-color: rgb(63, 131, 255);
+}
+.cities_name{
+    font-size: 1.1em;
+}
+.container_info_gl{
+    width: auto;
+    height: 80vh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%,-150%);
+
+    background-color: #A0C4FF20;
+
+	border: 2px solid #A0C4FF;
+    backdrop-filter: blur(20px);
+
+    padding: 2em 2em;
+
+    border-radius: 10px;
+
+    visibility: hidden;
+    z-index: 10000;
+    opacity: 0;
+    scale: 0.7;
+    transition-property: all;
+    transition-duration: 0.5s; 
+
+    display: flex;
+    flex-direction: column;
+}
+.container_info_gl.open{
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    transform: translate(-50%,-50%);
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.bold_info{
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.container_info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+}
+.get_info{
+    font-size: larger;
+    margin-top: 0.7em;
+}
+.name_city{
+    font-weight: bold;
+    font-size: 1.6em;
+    text-align: center;
+    margin-top: 0;
+}
+.container_name_info{
+    width: 100%;
+    margin-top: 1em;
+}
+#close_display_info{
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+}
+#close_display_search{
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+    margin-bottom: 0.5em;
+}
+#open_display_search{
+    cursor: pointer;
+    position: absolute;
+    left: 1em;
+    top: 1.5em;
+}
+.mobile-version{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    background-color: #fffffc;
+
+    z-index: 1000000000000000;
+}
+.penis_svg{
+    height: 75%;
+}
+@media(max-width: 1648px){
+    .russia_map_container{
+        scale: 0.7;
+        top: 50%;
+        left: 50%;
+        transform: translate(-65%,-75%);
+    }
+}
+@media(max-width: 768px){
+    .mobile-version{
+        visibility: visible;
+    }
+    .russia_map_container{
+        display: none;
+    }
+    .container_info_gl{
+        display: none;
+    }
+    .container_trey{
+        display: none;
+    }
+}
+@media(max-width: 500px){
+    .penis_svg{
+        height: 50%;
+    }
+}
